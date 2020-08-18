@@ -20,6 +20,14 @@ import javax.persistence.Table;
 	@NamedQuery(
 			name = "getMembersCount",
 			query = "SELECT COUNT(m) FROM Member AS m"
+			),
+	@NamedQuery(
+			name = "checkRegisteredEmail",
+			query = "SELECT COUNT(m) FROM Member AS m WHERE m.email = :email"
+			),
+	@NamedQuery(
+			name = "checkLoginEmailAndPassword",
+			query = "SELECT m FROM Member AS m WHERE m.email = :email AND m.password = :password"
 			)
 })
 @Entity
@@ -32,11 +40,11 @@ public class Member {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "phone_number", nullable = false)
-	private String phone_number;
+	@Column(name = "phone", nullable = false)
+	private String phone;
 
-	@Column(name = "email_address", nullable = false)
-	private String email_address;
+	@Column(name = "email", nullable = false)
+	private String email;
 
 	@Column(name = "password", length = 64, nullable = false)
 	private String password;
@@ -66,20 +74,20 @@ public class Member {
 		this.name = name;
 	}
 
-	public String getPhone_number() {
-		return phone_number;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getEmail_address() {
-		return email_address;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmail_address(String email_address) {
-		this.email_address = email_address;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
