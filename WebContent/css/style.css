@@ -20,6 +20,7 @@ body{
 h1 {
     font-size: 24px;
     display: inline;
+    color: ##00FFFF;
 }
 
 h2 {
@@ -90,12 +91,12 @@ button {
     background-color: #f8d7da;
 }
 
-table#employee_list th {
+table#member_list th {
     width: 30%;
     padding: 10px 2%;
 }
 
-table#employee_list td {
+table#member_list td {
     width: 29%;
     padding: 10px 2%;
 }
@@ -117,7 +118,7 @@ select {
     display: inline-block;
 }
 
-#employee_name {
+#member_name {
     color: #cccccc;
     width: 36%;
     padding-right: 3%;
@@ -126,10 +127,6 @@ select {
 }
 
 #header a {
-    color: #eeeeee;
-}
-
-h1 a {
     color: #eeeeee;
 }
 

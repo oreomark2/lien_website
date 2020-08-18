@@ -36,8 +36,8 @@ public class History {
 	private Member member;
 
 	@ManyToOne
-	@Column(name = "category_id", nullable = false)
-	private Category category;
+	@JoinColumn(name = "product_id", nullable = false)
+	private Product product;
 
 	@Column(name = "purchased_at", nullable = false)
 	private Timestamp purchased_at;
@@ -58,12 +58,12 @@ public class History {
 		this.member = member;
 	}
 
-	public Category getCategory() {
-		return category;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public Timestamp getPurchased_at() {
