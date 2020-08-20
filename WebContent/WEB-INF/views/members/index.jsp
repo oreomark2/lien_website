@@ -14,7 +14,7 @@
 					<th>名前</th>
 					<th>操作</th>
 				</tr>
-				<c:forEach var="member" items="${members }" varStatus="status">
+				<c:forEach var="member" items="${members}" varStatus="status">
 					<tr class="row${status.count % 2}">
 						<td><c:out value="${member.name}" /></td>
 						<td><a href="<c:url value='/employees/show?id=${member.id}' />">詳細を表示</a></td>
