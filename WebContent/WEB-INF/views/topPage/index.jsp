@@ -4,6 +4,7 @@
 	<c:param name="content">
 		<h2>Welcome to Lien</h2>
 			<div>
+				<p><a href="<c:url value='/products/index' />">商品一覧</a></p>
 				<p><a href="<c:url value='/login' />">会員ログイン</a></p>
 				<p><a href="<c:url value='/members/new' />">新規会員登録</a></p>
 			</div>
