@@ -130,34 +130,22 @@ select {
     color: #eeeeee;
 }
 
-table#report_list th{
+table#product_list th{
 	font-weight: bold;
 	padding: 10px 2%;
 }
 
-table#report_list .report_name{
+table#product_list .product_name{
 	width: 20%;
 	padding: 10px 2%;
 }
 
-table#report_list .report_date{
+table#product_list .product_price{
 	width: 20%;
 }
 
-table#report_list .report_title{
-	width: 30%;
-}
-
-table#report_list .report_action{
+table#product_list .product_action{
 	width: 10%;
-}
-
-table#report_list .start_time{
-	width: 10%
-}
-
-table#report_list .end_time{
-	width: 10%
 }
 
 pre {

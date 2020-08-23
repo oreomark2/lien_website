@@ -9,5 +9,13 @@
 		</form>
 
 		<p><a href="<c:url value='/index.html' />">トップページに戻る</a></p>
+
+		<script>
+		function callbackFn(event){
+			event.returnValue = "入力途中ですが、このページを離れても大丈夫ですか？";
+		}
+
+		window.onbeforeunload=callbackFn;
+		</script>
 	</c:param>
 </c:import>

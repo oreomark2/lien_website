@@ -38,6 +38,7 @@ public class MembersDestroyServlet extends HttpServlet {
 			Member m = em.find(Member.class, (Integer)(request.getSession().getAttribute("member_id")));
 
 			em.getTransaction().begin();
+			em.remove(m);
 			em.getTransaction().commit();
 			em.close();
 			request.getSession().setAttribute("flush","削除が完了しました。");

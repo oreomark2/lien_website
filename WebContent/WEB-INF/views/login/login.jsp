@@ -19,11 +19,14 @@
 			<br /><br />
 
 			<label for="password">パスワード</label><br />
-			<input type="password" name="passoword" />
+			<input type="password" name="password" />
 			<br /><br />
 
 			<input type="hidden" name="_token" value="${_token}" />
 			<button type="submit">ログイン</button>
 		</form>
+		<br /><br />
+
+		<h3><a href="<c:url value='/members/new' />">新規会員登録</a></h3>
 	</c:param>
 </c:import>
