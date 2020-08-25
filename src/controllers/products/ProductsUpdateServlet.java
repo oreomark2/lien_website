@@ -15,16 +15,16 @@ import models.Product;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ProductsCreateServlet
+ * Servlet implementation class ProductsUpdateServlet
  */
-@WebServlet("/products/create")
-public class ProductsCreateServlet extends HttpServlet {
+@WebServlet("/products/update")
+public class ProductsUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductsCreateServlet() {
+    public ProductsUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,16 +37,13 @@ public class ProductsCreateServlet extends HttpServlet {
 		if(_token != null && _token.equals(request.getSession().getId())){
 			EntityManager em = DBUtil.createEntityManager();
 
-			Product p = new Product();
+			Product p = em.find(Product.class, (Integer)(request.getSession().getAttribute("product_id")));
 
 			p.setCategory((Category)request.getSession().getAttribute("categories"));
 			p.setName(request.getParameter("name"));
 			p.setPrice(Integer.parseInt(request.getParameter("price")));
 			p.setContent(request.getParameter("content"));
-
-			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-			p.setCreated_at(currentTime);
-			p.setUpdated_at(currentTime);
+			p.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
 			//Product Validatorをどうするか
 			/*List<String> errors = ReportValidator.validate(r);
@@ -57,18 +54,18 @@ public class ProductsCreateServlet extends HttpServlet {
                 request.setAttribute("report", r);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/edit.jsp");
                 rd.forward(request, response);
             } else { */
 
 			em.getTransaction().begin();
-			em.persist(p);
 			em.getTransaction().commit();
 			em.close();
-			request.getSession().setAttribute("flush", "登録が完了しました");
+			request.getSession().setAttribute("flush", "更新が完了しました。");
+
+			request.getSession().removeAttribute("product_id");
 
 			response.sendRedirect(request.getContextPath() + "/products/index");
-
 
 		}
 	}
