@@ -39,9 +39,9 @@ public class ProductsCreateServlet extends HttpServlet {
 
 			Product p = new Product();
 
-			p.setCategory((Category)request.getSession().getAttribute("product__category"));
+			p.setCategory((Category)request.getSession().getAttribute("product_category"));
 			p.setName(request.getParameter("name"));
-			//p.setPrice(request.getParameter("price"));
+			p.setPrice(Integer.parseInt(request.getParameter("price")));
 			p.setContent(request.getParameter("content"));
 
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
