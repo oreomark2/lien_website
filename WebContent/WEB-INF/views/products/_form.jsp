@@ -18,6 +18,14 @@
 <input type="text" name="price" value="${product.price}" />
 <br /><br />
 
+<label for="product_category">カテゴリー</label><br />
+<select name="category">
+<c:forEach var="category" items="${categories}" varStatus="status">
+         <option value="${category.id}"><c:out value="${category.name}"></c:out></option>
+</c:forEach>
+</select>
+<br /><br />
+
 <label for="content">商品内容</label><br />
 <textarea name="content" rows="10" cols="50">${product.content}</textarea>
 <br /><br />

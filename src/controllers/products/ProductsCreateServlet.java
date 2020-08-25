@@ -39,7 +39,7 @@ public class ProductsCreateServlet extends HttpServlet {
 
 			Product p = new Product();
 
-			p.setCategory((Category)request.getSession().getAttribute("product_category"));
+			p.setCategory((Category)request.getSession().getAttribute("categories"));
 			p.setName(request.getParameter("name"));
 			p.setPrice(Integer.parseInt(request.getParameter("price")));
 			p.setContent(request.getParameter("content"));
