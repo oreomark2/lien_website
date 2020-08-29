@@ -46,6 +46,6 @@
 			</c:when>
 		</c:choose>
 
-		<p><a href="<c:url value="/products/index" />">商品一覧に戻る</a></p>
+		<p><a href="<c:url value="/categories/index" />">カテゴリー　一覧に戻る</a></p>
 	</c:param>
 </c:import>
