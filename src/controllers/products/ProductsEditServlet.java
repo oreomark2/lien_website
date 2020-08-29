@@ -1,6 +1,7 @@
 package controllers.products;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Category;
 import models.Product;
 import utils.DBUtil;
 
@@ -34,10 +36,13 @@ public class ProductsEditServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = DBUtil.createEntityManager();
 
+		List<Category> categoryList = em.createNamedQuery("getAllCategories", Category.class).getResultList();
+
+
 		Product p = em.find(Product.class, Integer.parseInt(request.getParameter("id")));
 
 		em.close();
-
+		request.setAttribute("categories", categoryList);
 		request.setAttribute("product", p);
 		request.setAttribute("_token", request.getSession().getId());
 		request.getSession().setAttribute("product_id", p.getId());

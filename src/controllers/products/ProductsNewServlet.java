@@ -39,6 +39,8 @@ public class ProductsNewServlet extends HttpServlet {
 		List<Category> categoryList = em.createNamedQuery("getAllCategories", Category.class).getResultList();
 		request.setAttribute("categories", categoryList);
 
+		em.close();
+
 		request.setAttribute("_token", request.getSession().getId());
 		request.setAttribute("product", new Product ());
 

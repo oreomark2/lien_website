@@ -38,8 +38,9 @@ public class ProductsCreateServlet extends HttpServlet {
 			EntityManager em = DBUtil.createEntityManager();
 
 			Product p = new Product();
+			Category c = em.find(Category.class, Integer.parseInt(request.getParameter("category")));
 
-			p.setCategory((Category)request.getSession().getAttribute("categories"));
+			p.setCategory(c);
 			p.setName(request.getParameter("name"));
 			p.setPrice(Integer.parseInt(request.getParameter("price")));
 			p.setContent(request.getParameter("content"));
@@ -54,7 +55,7 @@ public class ProductsCreateServlet extends HttpServlet {
                 em.close();
 
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("report", r);
+                request.setAttribute("product", c);
                 request.setAttribute("errors", errors);
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/new.jsp");

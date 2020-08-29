@@ -15,13 +15,13 @@
 <br /><br />
 
 <label for="product_price">価格</label><br />
-<input type="text" name="price" value="${product.price}" />
+<input type="text" name="price" value="${product.price}" />円
 <br /><br />
 
 <label for="product_category">カテゴリー</label><br />
 <select name="category">
 <c:forEach var="category" items="${categories}" varStatus="status">
-         <option value="${category.id}"><c:out value="${category.name}"></c:out></option>
+         <option value="${category.id}"${category.id == product.category.id ? "selected" : ""}><c:out value="${category.name}"></c:out></option>
 </c:forEach>
 </select>
 <br /><br />

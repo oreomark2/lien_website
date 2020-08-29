@@ -20,8 +20,8 @@
 				<c:forEach var="product" items="${products}" varStatus="status">
 					<tr class="row${status.count % 2}">
 					 <td class="product_name"><c:out value="${product.name}" /></td>
-					 <td class="product_price"><c:out value="${product.price}" /></td>
-					 <td class="product_category"><c:out value="${product.category}" /></td>
+					 <td class="product_price"><fmt:formatNumber value="${product.price}" />円</td>
+					 <td class="product_category"><c:out value="${product.category.name}" /></td>
 					 <td class="product_action"><a href="<c:url value='/products/show?id=${product.id}' />">詳細を見る</a></td>
 					</tr>
 				</c:forEach>

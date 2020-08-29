@@ -15,16 +15,16 @@
 						</tr>
 						<tr>
 							<th>価格</th>
-							<td><c:out value="${product.price}" /></td>
+							<td><fmt:formatNumber value="${product.price}" />円</td>
 						</tr>
 						<tr>
 							<th>カテゴリー</th>
-							<td><c:out value="${product.category}" /></td>
+							<td><c:out value="${product.category.name}" /></td>
 						</tr>
 						<tr>
 							<th>内容</th>
 							<td>
-								<pre><c:out value="${product.conten}" /></pre>
+								<pre><c:out value="${product.content}" /></pre>
 							</td>
 						</tr>
 						<tr>

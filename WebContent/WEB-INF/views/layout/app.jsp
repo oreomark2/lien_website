@@ -15,9 +15,10 @@
     				<h1><a href="<c:url value='/' />">Lien</a></h1>&nbsp;&nbsp;&nbsp;
     				<c:if test="${sessionScope.login_member != null}">
     					<c:if test="${sessionScope.login_member.admin_flag == 1}">
-    						<a href="<c:url value='/members/index' />">会員一覧</a>&nbsp;
+    						<a href="<c:url value='/members/index' />">会員</a>&nbsp;
     					</c:if>
-    					<a href="<c:url value='/products/index' />">商品一覧</a>&nbsp;
+    					<a href="<c:url value='/products/index' />">商品</a>&nbsp;
+    					<a href="<c:url value='/categories/index' />">カテゴリー</a>&nbsp;
     				</c:if>
     			</div>
     			<c:if test="${sessionScope.login_member != null}">
