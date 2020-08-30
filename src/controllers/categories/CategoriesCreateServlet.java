@@ -37,7 +37,7 @@ public class CategoriesCreateServlet extends HttpServlet {
 
             Category c = new Category();
 
-            c.setName(request.getParameter("name"));
+            c.setName(request.getParameter("category"));
 
 // CategoryValidatorどうするか
 

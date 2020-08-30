@@ -14,16 +14,16 @@ import models.Category;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class CategoriesShowServlet
+ * Servlet implementation class CategoriesEditServlet
  */
-@WebServlet("/categories/show")
-public class CategoriesShowServlet extends HttpServlet {
+@WebServlet("/categories/edit")
+public class CategoriesEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CategoriesShowServlet() {
+    public CategoriesEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +34,13 @@ public class CategoriesShowServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = DBUtil.createEntityManager();
 
-		Category c = em.find(Category.class, Integer.parseInt(request.getParameter("id")));
+        Category c = em.find(Category.class, Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("category", c);
 
-		em.close();
+        em.close();
 
-		request.setAttribute("category", c);
-
-		RequestDispatcher rd =request.getRequestDispatcher("/WEB-INF/views/categories/show.jsp");
-		rd.forward(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/categories/edit.jsp");
+        rd.forward(request, response);
 	}
 
 }

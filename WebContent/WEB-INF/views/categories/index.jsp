@@ -12,12 +12,10 @@
             <tbody>
                 <tr>
                     <th>カテゴリー</th>
-                    <th>商品</th>
                 </tr>
                 <c:forEach var="category" items="${categories}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${category.name}" /></td>
-                        <td><a href="<c:url value='/categories/show?id=${category.id}' />">詳細を表示</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -37,6 +35,7 @@
             </c:forEach>
         </div>
         <p><a href="<c:url value='/categories/new' />">新規カテゴリーの登録</a></p>
+        <p><a href="<c:url value='/categories/edit' />">このカテゴリーの編集</a></p>
 
     </c:param>
 </c:import>
