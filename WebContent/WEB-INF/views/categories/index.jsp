@@ -37,7 +37,6 @@
             </c:forEach>
         </div>
         <p><a href="<c:url value='/categories/new' />">新規カテゴリーの登録</a></p>
-        <p><a href="<c:url value='/categories/edit' />">このカテゴリーの編集</a></p>
 
     </c:param>
 </c:import>

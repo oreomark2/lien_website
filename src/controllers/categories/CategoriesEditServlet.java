@@ -39,6 +39,7 @@ public class CategoriesEditServlet extends HttpServlet {
 
         em.close();
 
+
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/categories/edit.jsp");
         rd.forward(request, response);
 	}

@@ -9,6 +9,7 @@
             </div>
         </c:if>
         <h2>購入履歴　一覧</h2>
+
         <table id="history_list">
             <tbody>
                 <tr>
