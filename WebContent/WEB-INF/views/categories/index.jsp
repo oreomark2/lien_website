@@ -17,7 +17,7 @@
                 <c:forEach var="category" items="${categories}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${category.name}" /></td>
-                        <td><a href="<c:url value='/categories/edit?id=${category.id}' />">詳細表示</a></td>
+                        <td><a href="<c:url value='/categories/edit?id=${category.id}' />">編集</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

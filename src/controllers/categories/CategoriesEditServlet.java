@@ -38,7 +38,7 @@ public class CategoriesEditServlet extends HttpServlet {
         request.setAttribute("category", c);
 
         em.close();
-
+        request.setAttribute("_token", request.getSession().getId());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/categories/edit.jsp");
         rd.forward(request, response);

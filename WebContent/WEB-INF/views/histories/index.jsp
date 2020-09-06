@@ -21,7 +21,7 @@
                 <c:forEach var="history" items="${histories}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td class="product_name"><c:out value="${history.product.name}" /></td>
-                        <td class="product_price"><c:out value="${history.product.price}" /></td>
+                        <td class="product_price"><fmt:formatNumber value="${history.product.price}" />円</td>
                         <td class="product_category"><c:out value="${history.product.category.name}" /></td>
                         <td class="purchased_at"><fmt:formatDate value="${history.purchased_at}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                     </tr>

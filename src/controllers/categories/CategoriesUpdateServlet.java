@@ -35,9 +35,9 @@ public class CategoriesUpdateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Category c = em.find(Category.class, (Integer)(request.getSession().getAttribute("category_id")));
+            Category c = em.find(Category.class, Integer.parseInt((request.getParameter("id"))));
 
-            c.setName(request.getParameter("name"));
+            c.setName(request.getParameter("category"));
 
 // CategoryValidatorどうするか
 //            List<String> errors = ReportValidator.validate(r);
@@ -55,8 +55,6 @@ public class CategoriesUpdateServlet extends HttpServlet {
             em.getTransaction().commit();
             em.close();
             request.getSession().setAttribute("flush", "更新が完了しました。");
-
-            request.getSession().removeAttribute("category_id");
 
             response.sendRedirect(request.getContextPath() + "/categories/index");
             }

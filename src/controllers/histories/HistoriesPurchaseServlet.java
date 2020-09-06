@@ -44,6 +44,7 @@ public class HistoriesPurchaseServlet extends HttpServlet {
 
             h.setMember((Member)request.getSession().getAttribute("login_member"));
             h.setProduct(p);
+            request.getParameter("_token");
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             h.setPurchased_at(currentTime);
@@ -66,7 +67,7 @@ public class HistoriesPurchaseServlet extends HttpServlet {
                 em.getTransaction().commit();
                 em.close();
                 request.getSession().setAttribute("flush", "購入が完了しました。");
-
+                request.setAttribute("_token", request.getSession().getId());
                 response.sendRedirect(request.getContextPath() + "/histories/index");
             }
         }

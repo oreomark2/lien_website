@@ -42,7 +42,7 @@
 					</tbody>
 				</table>
 
-				<p><a href="<c:url value="/histories/purchase" />">この商品を購入する</a></p>
+				<p><a href="<c:url value="/histories/purchase?_token=${_token}&id=${product.id}" />">この商品を購入する</a></p>
 				<p><a href="<c:url value="/products/edit?id=${product.id}" />">この商品を編集する</a></p>
 			</c:when>
 		</c:choose>
