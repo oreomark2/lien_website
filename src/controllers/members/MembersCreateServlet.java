@@ -46,7 +46,7 @@ public class MembersCreateServlet extends HttpServlet {
 			m.setPhone(request.getParameter("phone"));
 			m.setEmail(request.getParameter("email"));
 			m.setPassword(EncryptUtil.getPasswordEncrypt(request.getParameter("password"),(String)this.getServletContext().getAttribute("pepper")));
-			m.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
+			m.setAdmin_flag(0);
 
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 			m.setCreated_at(currentTime);
@@ -69,7 +69,7 @@ public class MembersCreateServlet extends HttpServlet {
 				em.close();
 				request.getSession().setAttribute("flush", "登録が完了しました。");
 
-				response.sendRedirect(request.getContextPath() + "/members/index");
+				response.sendRedirect(request.getContextPath() + "/index.html");
 			}
 		}
 	}

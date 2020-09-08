@@ -41,6 +41,8 @@
                 </c:choose>
             </c:forEach>
         </div>
+        <c:if test="${sessionScope.login_member.admin_flag == 1}">
         <p><a href="<c:url value='/products/new' />">新規商品の登録</a></p>
+        </c:if>
 	</c:param>
 </c:import>

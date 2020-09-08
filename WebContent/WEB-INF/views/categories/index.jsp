@@ -12,12 +12,16 @@
             <tbody>
                 <tr>
                     <th>カテゴリー</th>
+                    <c:if test="${sessionScope.login_member.admin_flag == 1}">
                     <th>操作</th>
+                    </c:if>
                 </tr>
                 <c:forEach var="category" items="${categories}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td><c:out value="${category.name}" /></td>
-                        <td><a href="<c:url value='/categories/edit?id=${category.id}' />">編集</a></td>
+    					<c:if test="${sessionScope.login_member.admin_flag == 1}">
+                        	<a href="<c:url value='/categories/edit?id=${category.id}' />">編集</a>&nbsp;
+                        </c:if>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -36,7 +40,8 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='/categories/new' />">新規カテゴリーの登録</a></p>
-
+    		<c:if test="${sessionScope.login_member.admin_flag == 1}">
+    			<p><a href="<c:url value='/categories/new' />">新規カテゴリーの登録</a></p>
+    		</c:if>
     </c:param>
 </c:import>

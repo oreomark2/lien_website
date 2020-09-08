@@ -43,10 +43,11 @@
 				</table>
 
 				<p><a href="<c:url value="/histories/purchase?_token=${_token}&id=${product.id}" />">この商品を購入する</a></p>
+				<c:if test="${sessionScope.login_member.admin_flag == 1}">
 				<p><a href="<c:url value="/products/edit?id=${product.id}" />">この商品を編集する</a></p>
+				</c:if>
+				<p><a href="<c:url value="/puroducts/index" />">商品一覧に戻る</a></p>
 			</c:when>
 		</c:choose>
-
-		<p><a href="<c:url value="/puroducts/index" />">商品一覧に戻る</a></p>
 	</c:param>
 </c:import>

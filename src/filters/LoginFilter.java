@@ -42,7 +42,7 @@ public class LoginFilter implements Filter {
 		String context_path = ((HttpServletRequest)request).getContextPath();
 		String servlet_path = ((HttpServletRequest)request).getServletPath();
 
-		if(!servlet_path.matches("/css.*") && !servlet_path.equals("/index.html") && !servlet_path.equals("/members/new")){
+		if(!servlet_path.matches("/css.*") && !servlet_path.equals("/index.html") && !servlet_path.equals("/members/new") && !servlet_path.equals("/members/create")){
 			HttpSession session = ((HttpServletRequest)request).getSession();
 
 			Member m = (Member)session.getAttribute("login_member");
