@@ -17,11 +17,11 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(
 			name = "getAllHistories",
-			query = "SELECT h FROM History AS h ORDER BY h.id DESC"
+			query = "SELECT h FROM History AS h WHERE h.member = :member ORDER BY h.id DESC"
 			),
 	@NamedQuery(
 			name = "getHistoriesCount",
-			query = "SELECT COUNT(h) FROM History AS h"
+			query = "SELECT COUNT(h) FROM History AS h WHERE h.member = :member "
 			)
 })
 @Entity

@@ -19,6 +19,7 @@
     					</c:if>
     					<a href="<c:url value='/products/index' />">商品</a>&nbsp;
     					<a href="<c:url value='/categories/index' />">カテゴリー</a>&nbsp;
+    					<a href="<c:url value='/histories/index' />">購入履歴</a>&nbsp;
     				</c:if>
     			</div>
     			<c:if test="${sessionScope.login_member != null}">

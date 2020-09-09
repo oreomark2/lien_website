@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.History;
+import models.Member;
 import utils.DBUtil;
 /**
  * Servlet implementation class HistoriesIndexServlet
@@ -34,17 +35,23 @@ public class HistoriesIndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = DBUtil.createEntityManager();
 
+		Member login_member = (Member)request.getSession().getAttribute("login_member");
+
         int page = 1;
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
+
         List<History> histories = em.createNamedQuery("getAllHistories", History.class)
-                                     .setFirstResult(15 * (page - 1))
-                                     .setMaxResults(15)
-                                     .getResultList();
+                				.setParameter("member", login_member)
+                				.setFirstResult(15 * (page - 1))
+                				.setMaxResults(15)
+                				.getResultList();
+
 
         long histories_count = (long)em.createNamedQuery("getHistoriesCount", Long.class)
-                                       .getSingleResult();
+                                .setParameter("member", login_member)
+        						.getSingleResult();
 
         em.close();
 
